@@ -1,6 +1,6 @@
 steps- q2
 
-kubectl run adhocpod1 --image=nginx --port 80 --restart Never --dry-run=client -o yaml > q2.yaml
+kubectl run aditipod1 --image=nginx --port 80 --restart Never --dry-run=client -o yaml > q2.yaml
 
 vim q2.yaml
 
