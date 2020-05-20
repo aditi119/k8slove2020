@@ -1,0 +1,38 @@
+steps- q2
+
+kubectl run adhocpod1 --image=nginx --port 80 --restart Never --dry-run=client -o yaml > q2.yaml
+
+vim q2.yaml
+
+-change lable
+  labels:
+    run: adhocpod1
+-to
+  labels:
+    adhoc: aditikhemkaq2
+
+kubectl create -f q2.yaml
+
+kubectl create service nodeport q2svcaditikhemka --tcp 80 --dry-run -o yaml > myscv.yaml
+
+vim myscv.yaml
+
+-in seletcor change 
+ selector:
+    app: q2svcaditikhemka
+-to
+ selector:
+    adhoc: aditikhemkaq2
+
+kubectl create -f myscv.yaml
+
+kubectl get po,svc
+
+# get the port from service 
+service/q2svcaditikhemka   NodePort    10.108.221.243   <none>        80:30473/TCP   7m39s
+
+#check the service by using http://3.218.1.117:30473/
+
+
+
+
