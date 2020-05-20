@@ -1,0 +1,6 @@
+steps-q1 
+
+docker build -t aditi:v .
+ docker tag aditi:v aditi119/may2020q1:v1
+ docker login
+ docker push aditi119/may2020q1:v1
